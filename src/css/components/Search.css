@@ -44,7 +44,7 @@
 }
 
 .search__icon:hover {
-    color: red;
+    color: #92E3A9;
 }
 
 
@@ -64,7 +64,7 @@
 }
 
 .filter__icon:hover {
-    color: red;
+    color: #92E3A9;
 }
 
 .filter__box {
@@ -200,7 +200,7 @@
 }
 
 .sort__icon:hover {
-    color: red;
+    color: #92E3A9;
 }
 
 .sort__box {

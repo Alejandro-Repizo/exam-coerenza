@@ -1,18 +1,24 @@
 import React, { useEffect, useReducer, useState } from 'react';
+import { Grid } from 'react-loader-spinner';
 
-import { movieReducer } from '../../reducer/movieReducer';
 import { genres } from '../../data/db';
+import { useGetData } from '../../hook/useGetData';
+import { movieReducer } from '../../reducer/movieReducer';
 
 import { Card } from './Card';
 import { CardList } from './CardList';
 import { Search } from './Search';
 import { Filter } from './Filter';
 import { Checkbox } from './Checkbox';
-
-import { useGetData } from '../../hook/useGetData';
-import { getMovieByName, setFilterToAll, setMovies, setMoviesSort } from '../../actions/movie';
-import { getMoviesByGenres } from '../../actions/movie';
 import { Sort } from './Sort';
+
+import {
+	getMovieByName,
+	setFilterToAll,
+	setMovies,
+	setMoviesSort,
+	getMoviesByGenres,
+} from '../../actions/movie';
 
 import {
 	getAllIds,
@@ -21,6 +27,10 @@ import {
 	movieListAsMap,
 } from '../../helpers/normalice';
 
+
+/**
+ * Estado inicial del reducer
+ */
 const initialState = {
 	movieList: null,
 	filter: 'all',
@@ -33,12 +43,17 @@ const initialState = {
 };
 
 export const MoviesApp = () => {
+	
+	// Inicializamos el reducer
 	const [movie, dispatch] = useReducer(movieReducer, initialState);
 
+	// Estado independiente para manejar el search
 	const [search, setSearch] = useState('');
 
+	// variable para recorrer la informacion
 	const movieListId = movie.list[movie.filter];
 
+	// Action creator para obtener la informacion
 	const handleGetMovies = (movies) => {
 		dispatch(
 			setMovies(
@@ -50,14 +65,19 @@ export const MoviesApp = () => {
 		);
 	};
 
+	// Action creator para obtener los generos
 	const handleGenre = (genreList) => dispatch(getMoviesByGenres(movie.movieList, genreList));
 
+	// Action creator para la parte del search
 	const handleGetMovieByName = (movieList, query) => dispatch(getMovieByName(movieList, query));
 
+	// Action creator que se encarga de restrablecer la lista de movies
 	const handleFilterToAll = () => dispatch(setFilterToAll());
 
-	const handleSort = ({target}) => dispatch(setMoviesSort(target.dataset.option));
+	// Action creator que se encarga de la opcion organizar
+	const handleSort = ({ target }) => dispatch(setMoviesSort(target.dataset.option));
 
+	// Custom hook para obtener la informacion
 	const { loading, error } = useGetData(handleGetMovies);
 
 	useEffect(() => {
@@ -89,12 +109,15 @@ export const MoviesApp = () => {
 					</Sort>
 				</>
 			</Search>
+			{error.state && <p>{error.message}</p>}
+
+			{loading && (
+				<div className='loader'>
+					<Grid color='#89d6a0' height={80} width={80} />
+				</div>
+			)}
 
 			<CardList>
-				{loading && <p>loading</p>}
-
-				{error.state && <p>{error.message}</p>}
-
 				{movieListId.length > 0 &&
 					movieListId.map((id) => <Card key={id} movie={movie.movieList.get(id)} />)}
 			</CardList>

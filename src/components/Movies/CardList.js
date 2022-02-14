@@ -1,5 +1,6 @@
 import React from 'react';
 
-export const CardList = ({ children }) => {
-	return <div className='container--card'>{children}</div>;
-};
+export const CardList = ({ children }) => (
+	<div className='container--card'>{children}</div>
+)
+	

@@ -1,14 +1,15 @@
 import React from 'react';
 
-export const Card = ({ movie }) => {	
-
-	// console.log(movie)
-	
-	const { id, title, overview, vote_average, release_date, poster_path, genre_ids } = movie;
+export const Card = ({ movie }) => {
+	/**
+	 * Realizamos la desestructuración
+	 * del objeto movie
+	 */
+	const { title, overview, vote_average, release_date, poster_path } = movie;
 
 	return (
 		<div className='card'>
-			<p className='card__title'>{title} - {JSON.stringify(genre_ids)} - {id}</p>
+			<p className='card__title'>{title}</p>
 			<div className='card__body'>
 				<div className='card__thumbnail'>
 					<img

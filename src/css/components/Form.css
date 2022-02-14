@@ -1,0 +1,108 @@
+.container--form {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem 0;
+
+}
+
+.postcard {
+    background-color: #ffffff;
+    width: 50%;
+    height: 100%;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 21px -8px rgba(0, 0, 0, 0.36);
+    border-radius: 6px;
+    padding: 2.4em 1rem;
+    position: relative;
+}
+
+
+.postcard__title {
+    font-size: 1.5em;
+    color: #3f3f3f;
+    text-transform: capitalize;
+}
+
+.postcard__body {
+    width: 80%;
+}
+
+
+.postcard__input {
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    width: 100%;
+    padding: 14px 12px;
+    color: #6d6d6d;
+    outline: none;
+}
+
+.postcard__input:focus {
+    outline: 1.5px solid #92E3A9;
+    box-shadow: 0px 0px 21px -8px rgba(146, 227, 169, 1);
+    background-color: #ebfdf0;
+    border-radius: 3px;
+}
+
+.postcard__input--danger {
+    border: 2px solid #FF725E;
+}
+
+.postcard__label--danger {
+    color: #FF725E;
+}
+
+.postcard__button {
+    width: 100%;
+    padding: 1em 0;
+    border: 1px solid #92E3A9;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .2s ease all;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #8ad6a0;
+    font-size: .9em;
+    text-transform: capitalize;
+    margin: 1rem 0;
+}
+
+.postcard__button:active {
+    transform: translateY(4px);
+    background-color: #b1eec2;
+}
+
+.postcard__result {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.postcard__result li {
+    list-style-type: "\1F44C";
+    font-size: 1.5em;
+    color: #3f3f3f;
+}
+
+.alert-error {
+    width: 100%;
+    border-radius: 0.3em;
+    padding: 0.5em 0.8em;
+    margin: 0.7em 0 0 0;
+    border: 1px solid #dc3546;
+    color: #dc3546;
+    font-weight: 500;
+    font-size: 0.9em;
+    text-align: center;
+    background-color: #f7d7da;
+}

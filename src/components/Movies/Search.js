@@ -1,10 +1,16 @@
 import React, { useRef } from 'react';
 
-
-export const Search = ({ setSearch, children,  }) => {
-	
+export const Search = ({ setSearch, children }) => {
+	/**
+	 * Instanciamos un useRef para obtener el valor
+	 * del input
+	 */
 	const seachValue = useRef(null);
 
+	/**
+	 * Funcion que realizar la obtención
+	 * del valor del input
+	 */
 	const handleSearch = () => {
 		const value = seachValue.current.value;
 		setSearch(value.trim());
@@ -23,8 +29,7 @@ export const Search = ({ setSearch, children,  }) => {
 				<i className='fa-solid fa-magnifying-glass search__icon' onClick={handleSearch}></i>
 			</div>
 
-			{ children }
-		
+			{children}
 		</div>
 	);
 };

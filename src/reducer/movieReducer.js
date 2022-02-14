@@ -1,5 +1,13 @@
 import { types } from '../types/types';
 
+/**
+ * Reducer encargado de manejar el estado
+ * de forma declarativo
+ *
+ * @param {Object} state
+ * @param {Object} action
+ * @returns Object
+ */
 export const movieReducer = (state, action) => {
 	switch (action.type) {
 		case types.moviesLoad:
@@ -8,7 +16,7 @@ export const movieReducer = (state, action) => {
 				movieList: action.payload.movieList,
 				list: {
 					...state.list,
-					...action.payload.list
+					...action.payload.list,
 				},
 			};
 		case types.movieSearch:
@@ -43,10 +51,10 @@ export const movieReducer = (state, action) => {
 		case types.movieSort: {
 			return {
 				...state,
-				filter: action.payload
-			}
+				filter: action.payload,
+			};
 		}
-		
+
 		default:
 			return state;
 	}

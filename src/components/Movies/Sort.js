@@ -1,6 +1,10 @@
 import React, { useState, Children, cloneElement } from 'react';
 
 export const Sort = ({ handleSort, children }) => {
+	/**
+	 * Estado independiente encargado de manejar
+	 * la visibilidad de la caja
+	 */
 	const [active, setActive] = useState(false);
 
 	const handleOpenSortBox = () => {
