@@ -1,15 +1,9 @@
-import { Fibonacci } from './components/Fibonacci/Fibonacci';
-import { Multiplos } from './components/Multiplos/Multiplos';
-
-import { MoviesApp } from './components/Movies/MoviesApp';
+import { AppRouter } from './routers/AppRouter';
 
 export const App = () => {
 	return (
-		<div className='App'>
-			{/* <Fibonacci />
-			<hr />
-			<Multiplos /> */}
-			<MoviesApp/>
+		<div>
+			<AppRouter/>
 		</div>
 	);
 };
