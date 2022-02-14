@@ -1,0 +1,12 @@
+.container--movie {
+    padding: 1.7rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid red;
+}
+
+.title {
+    font-size: 23px;
+    margin: 0 0 .5rem 0;
+}

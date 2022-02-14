@@ -1,0 +1,8 @@
+
+@import url('./base/_base.css');
+
+/* Components */
+
+@import url('./components/Card.css');
+@import url('./components/Movie.css');
+@import url('./components/Search.css');
